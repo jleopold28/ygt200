@@ -1,6 +1,5 @@
 from datetime import datetime as dt
 from xml.dom.minidom import Element
-
 from utils import add_class, remove_class
 
 tasks = []
