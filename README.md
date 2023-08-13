@@ -2,5 +2,4 @@
 
 [View index.html](https://htmlpreview.github.io/?https://github.com/jleopold28/ygt200/blob/main/index.html)
 
-
-[View python_example.html](https://htmlpreview.github.io/?https://github.com/jleopold28/ygt200/blob/main/python_example.html)
+[View python to-do list example](https://htmlpreview.github.io/?https://github.com/jleopold28/ygt200/blob/main/python/index.html)
