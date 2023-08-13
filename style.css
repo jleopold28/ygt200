@@ -1,0 +1,120 @@
+html {
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/*  End of CSS Reset */
+
+body {
+    
+}
+
+.banner {
+    align-items: center;
+    background-image: url('images/sky.jpeg');
+    background-position: bottom;
+    color: white;
+    display: grid;
+    font-family: sans-serif;
+    min-height: 440px;
+    padding: 40px;
+    text-align: center;
+}
+
+.banner h1 {
+    color: white;
+    font-family: sans-serif;
+    padding: 30px 0;
+    text-align: center;
+}
+
+/*  End of Banner */
+
+.container {
+    display: grid;
+    grid-template-columns: 65% 32%;
+}
+
+nav {
+    background-color: #add8e69c;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+nav ul {
+    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(5, 20%);
+    justify-content: center;
+}
+
+.logo {
+    padding-left: 20px;
+}
+
+.logo img {
+    height: 135px;
+}
+
+#banner:hover {
+    color: black;
+}
+
+section {
+    background-image: url('images/map_back.jpeg');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    min-height: 800px;
+}
+
+aside {
+    align-items: center;
+    background: linear-gradient(to top, #89cce382, #89cce3), url('images/globe-connect.jpeg') center no-repeat;
+    background-size: auto 100%;
+    border-radius: 30px 30px 180px 180px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 10px 50px 20px 0;
+    min-height: 330px;
+    max-width: 480px;
+}
+
+footer {
+    background-color: blue;
+    height: 120px;
+}
