@@ -26,6 +26,16 @@
             <aside>
                 <h2>Communication Cloud</h2>
                 <button>Click Here</button>
+                <py-config>
+                    plugins = [
+                      "https://pyscript.net/latest/plugins/python/py_tutor.py",
+                      "./py_list.py"
+                    ]
+                    [[fetch]]
+                    files = ["./python/utils.py", "./python/todo.py"]
+                </py-config>
+
+                <py-script src="./python/todo.py"></py-script>
             </aside>
         </div>
         <footer>
