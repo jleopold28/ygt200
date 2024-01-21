@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Pie Assistant</title>
+</head>
+<body>
+    <h1>Welcome to YGT 200's Virtual Pie Assistant</h1>
+    <h2>Apple Pie Assistant</h2>
+    <p>We love pies in this class and want as many in the world as possible. That is why we created this virtual assistant. We believe that more pies = more peace. Our goal is world peace through pies.</p>
+    <h3>How many pies can you commit to making today?</h2>
+        <label for="pies">Choose an amount:</label>
+        <select name="pies" id="pies">
+          <option value="one">Just one</option>
+          <option value="two">I can make 2</option>
+          <option value="three">I can make 3</option>
+          <option value="other">Other</option>
+        </select>
+        <button type="submit" onclick="return handleSubmit()">Submit</button>
+    <div>
+        <br>
+        <img id="pieImg" width="250" src="assets/1pie.png" alt="">
+        <br>
+        <h3>You will need the following ingredients:</h3>
+        <ul>
+            <li><strong id="appleCount">7</strong> Apples</li>
+            <li><strong id="crustCount">2</strong> Pie Crusts</li>
+            <li><strong id="sugarCount">0.5</strong> cup Sugar</li>
+            <li><strong id="tspCount">1</strong> tsp Cinnamon</li>
+            <li><strong id="eggCount">1</strong><span id="eggText"> egg</span></li>
+        </ul>
+    </div>
+
+    <div>
+        <h3>Directions:</h3>
+        <ol>
+            <li>Place oven rack in the center position and preheat the oven to 400°F</li>
+            <li>In a large bowl, combine the sliced apples, granulated sugar, light brown sugar, flour, cinnamon, nutmeg, and lemon juice and lemon zest; toss to coat evenly.</li>
+            <li>Spoon the apple filling over the bottom crust. Roll out the second disc of pie crust until it is ⅛" thick and lay it over the apple filling.</li>
+            <li>Brush the surface of the pie crust with the egg wash </li>
+            <li>Cover the edges with a pie shield or a strip of foil to keep them from over browning during the first 25 minutes.</li>
+            <li>Bake at 400°F (204°C) for 25 minutes.Carefully remove the pie shield, turn the oven down to 375° and continue to bake for an additional 30-35 minutes</li>
+        </ol>
+    </div>
+</body>
+<script>
+    function handleSubmit() {
+        // Get what the user selected
+        var e = document.getElementById("pies");
+        var value = e.value;
+
+        //var pieImgUrl = "https://www.twopeasandtheirpod.com/wp-content/uploads/2022/11/Apple-Cranberry-Pie-43.jpg";
+        var pieImgUrl = "assets/1pie.png"
+        var numberOfApples = 7
+        var numberOfPieCrusts = 2
+        var cupsOfSugar = .5
+        var tspOfCinnamon = 1
+        var eggCount = 1;
+
+        if (value === "two") {
+            //pieImgUrl = "https://sallysbakingaddiction.com/wp-content/uploads/2023/09/latticed-crimped-fluted-apple-pies-2.jpg"
+            pieImgUrl = "assets/2pies.png"
+            numberOfApples *= 2
+            numberOfPieCrusts *= 2
+            cupsOfSugar *= 2
+            tspOfCinnamon *= 2
+            eggCount *= 2
+        } else if (value === "three") {
+            //pieImgUrl = "https://whatsmarydoing.com/wp-content/uploads/2013/08/Pie-Not-3-pies-on-table.jpg"
+            pieImgUrl = "assets/3pies.png"
+            numberOfApples *= 3
+            numberOfPieCrusts *= 3
+            cupsOfSugar *= 3
+            tspOfCinnamon *= 3
+            eggCount *= 3
+        } else {
+            //pieImgUrl = "https://3.bp.blogspot.com/-tzMGXWTzSjQ/VH5XJpCu1CI/AAAAAAAAEHA/EpBK1q4TNnY/s1600/tumblr_nd31s6thcV1rj76exo1_1280.jpg"
+            pieImgUrl = "assets/pies.png"
+            numberOfApples = "Some"
+            numberOfPieCrusts = "Some"
+            cupsOfSugar = "Some"
+            tspOfCinnamon = "Some"
+            eggCount = "Some"
+        }
+        
+        document.getElementById("pieImg").src = pieImgUrl;
+        document.getElementById("appleCount").innerHTML = numberOfApples;
+        document.getElementById("crustCount").innerHTML = numberOfPieCrusts;
+        document.getElementById("sugarCount").innerHTML = cupsOfSugar;
+        document.getElementById("tspCount").innerHTML = tspOfCinnamon;
+        document.getElementById("eggCount").innerHTML = eggCount; 
+
+        if (eggCount > 1 || eggCount == "Some") {
+            document.getElementById("eggText").innerHTML = " eggs"
+        }
+    }
+</script>
+
+</html>

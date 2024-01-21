@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Legend of Zelda</title>
+</head>
+<body>
+    <h1>The Legend of Zelda: Tears of the Kingdom</h1>
+    <h2>Meet the Characters</h2>
+    <label for="characters">Select a character:</label>
+    <select name="characters" id="characters">
+        <option value="link">Link</option>
+        <option value="zelda">Zelda</option>
+        <option value="ganondorf">Ganondorf</option>
+    </select>
+    <button type="submit" onclick="return setAction()">Submit</button>
+    <br><br>
+    <div id="characterInfo" style="display: none;">
+        <img id= "characterImg" width="250" src="https://assets-prd.ignimgs.com/2023/05/19/ign-uk-daily-deals-may-19-2023-1684488391398.png" alt="">
+        <h1>About the Character</h1>
+        <ul>
+            <li>Name: <strong id="name">Link</strong></li>
+            <li>Age (approximate): <strong id="age">120</strong></li>
+            <li>Description: <strong id="description">He is the main character, also known as the Hero of Hyrule, and Princess Zelda's bodyguard and knight</strong></li>
+            <li>Character was created in <span id="creationYear">1986</span>... <span id="yearsAgo">28</span> years ago!</li>
+        </ul>
+    </div>
+</body>
+<script>
+    function setAction() {
+        document.getElementById("characterInfo").style.display = "block";
+        var imageUrl = "https://assets-prd.ignimgs.com/2023/05/19/ign-uk-daily-deals-may-19-2023-1684488391398.png"
+        var name = "Link"
+        var age = 1233
+        var description = "He is the main character, also known as the Hero of Hyrule, and Princess Zelda's bodyguard and knight"
+        var creationYear = 1986
+
+        var userSelection = document.getElementById("characters").value;
+        if (userSelection == "zelda") {
+            imageUrl = "https://i.ytimg.com/vi/qJSTi18Zu9E/maxresdefault.jpg"
+            name = "Zelda"
+            age = 124
+            description = "Zelda is not only the princess of Hyrule, she is also an aspiring scholar who is very curious. She is also the leader of the Champions of Hyrule. Zelda has been training to unlock her sealing powers passed down the royal family since she was 7 years old."
+        } else if (userSelection == "ganondorf") {
+            imageUrl = "https://cdn.vox-cdn.com/thumbor/zSxPkULT_xhYgnQ47GPFiePlH6g=/0x0:1920x1200/1200x800/filters:focal(1167x271:1473x577)/cdn.vox-cdn.com/uploads/chorus_image/image/72179423/ganondorf_hot.0.jpg"
+            name = "Ganondorf"
+            age = "10,000"
+            description = "He is the main antagonist of the game, and is also known as the Demon King."
+            creationYear = 1998
+        }
+        document.getElementById("characterImg").src = imageUrl
+        document.getElementById("name").innerText = name
+        document.getElementById("age").innerText = age
+        document.getElementById("description").innerText = description
+        document.getElementById("creationYear").innerText = creationYear
+
+        const currentYear = new Date().getFullYear();
+        document.getElementById("yearsAgo").innerText = currentYear - birthYear;
+    }
+</script>
+</html>
