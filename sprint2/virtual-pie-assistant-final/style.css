@@ -1,0 +1,39 @@
+body {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+h1 {
+    background-color: #da1310;
+    color: white;
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+}
+
+h2 {
+    color: white;
+    font-size: 3rem;
+    text-shadow: 2px 4px 3px black;
+}
+
+.banner {
+    align-items: center;
+    background-image: url('https://www.twopeasandtheirpod.com/wp-content/uploads/2022/11/Apple-Cranberry-Pie-43.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    height: 500px;
+    justify-content: center;
+    width: 100vw;
+}
+
+.wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.item-text {
+    flex: 1 1 100%;
+}

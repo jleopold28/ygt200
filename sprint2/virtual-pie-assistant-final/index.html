@@ -4,32 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Virtual Pie Assistant</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>Welcome to YGT 200's Virtual Pie Assistant</h1>
-    <h2>Apple Pie Assistant</h2>
-    <p>We love pies in this class and want as many in the world as possible. That is why we created this virtual assistant. We believe that more pies = more peace. Our goal is world peace through pies.</p>
-    <h3>How many pies can you commit to making today?</h2>
-        <label for="pies">Choose an amount:</label>
-        <select name="pies" id="pies">
-          <option value="one">Just one</option>
-          <option value="two">I can make 2</option>
-          <option value="three">I can make 3</option>
-          <option value="other">Other</option>
-        </select>
-        <button type="submit" onclick="return handleSubmit()">Submit</button>
-    <div>
-        <br>
-        <img id="pieImg" width="250" src="assets/1pie.png" alt="">
-        <br>
-        <h3>You will need the following ingredients:</h3>
-        <ul>
-            <li><strong id="appleCount">7</strong> Apples</li>
-            <li><strong id="crustCount">2</strong> Pie Crusts</li>
-            <li><strong id="sugarCount">0.5</strong> cup Sugar</li>
-            <li><strong id="tspCount">1</strong> tsp Cinnamon</li>
-            <li><strong id="eggCount">1</strong><span id="eggText"> egg</span></li>
-        </ul>
+
+    <div class="banner">
+        <h2>Apple Pie Assistant</h2>
+    </div>
+
+    <div class="wrap">
+        <div class="item item-text">
+            <p>We love pies in this class and want as many in the world as possible. That is why we created this virtual assistant. We believe that more pies = more peace. Our goal is world peace through pies.</p>
+        </div>
+
+        <div class="item">
+            <h3>How many pies can you commit to making today?</h3>
+
+            <select name="pie-number" id="pieNumber">
+                <option value="1">1 pie</option>
+                <option value="2">2 pies</option>
+                <option value="3">3 pies</option>
+            </select>
+            <button id="submit" onclick="return handleSubmit();">Submit</button>
+        </div>
+
+        <div class="item">
+            <h3>You will need the following ingredients:</h3>
+            <ul>
+                <li><strong id="apples">7</strong> Apples</li>
+                <li><strong id="pieCrusts">2</strong> Pie Crusts</li>
+                <li><strong id="sugar">0.5</strong> cup Sugar</li>
+                <li><strong id="cinnamon">1</strong> tsp Cinnamon</li>
+                <li><strong id="eggs">1</strong> <span id="eggText">egg</span></li>
+            </ul>
+        </div>
     </div>
 
     <div>
@@ -44,56 +53,47 @@
         </ol>
     </div>
 </body>
+
 <script>
     function handleSubmit() {
-        // Get what the user selected
-        var e = document.getElementById("pies");
-        var value = e.value;
+        // Get Select element
+        var pieSelect = document.getElementById('pieNumber');
+        // Get value of option of the current selection
+        var selectValue = pieSelect.value;
 
-        //var pieImgUrl = "https://www.twopeasandtheirpod.com/wp-content/uploads/2022/11/Apple-Cranberry-Pie-43.jpg";
-        var pieImgUrl = "assets/1pie.png"
-        var numberOfApples = 7
-        var numberOfPieCrusts = 2
-        var cupsOfSugar = .5
-        var tspOfCinnamon = 1
+        // Create variables for each ingredient
+        var appleCount = 7;
+        var pieCrustsCount = 2;
+        var sugarAmt = 0.5;
+        var cinnamonAmt = 1;
         var eggCount = 1;
+        var eggTextValue = "egg";
 
-        if (value === "two") {
-            //pieImgUrl = "https://sallysbakingaddiction.com/wp-content/uploads/2023/09/latticed-crimped-fluted-apple-pies-2.jpg"
-            pieImgUrl = "assets/2pies.png"
-            numberOfApples *= 2
-            numberOfPieCrusts *= 2
-            cupsOfSugar *= 2
-            tspOfCinnamon *= 2
-            eggCount *= 2
-        } else if (value === "three") {
-            //pieImgUrl = "https://whatsmarydoing.com/wp-content/uploads/2013/08/Pie-Not-3-pies-on-table.jpg"
-            pieImgUrl = "assets/3pies.png"
-            numberOfApples *= 3
-            numberOfPieCrusts *= 3
-            cupsOfSugar *= 3
-            tspOfCinnamon *= 3
-            eggCount *= 3
-        } else {
-            //pieImgUrl = "https://3.bp.blogspot.com/-tzMGXWTzSjQ/VH5XJpCu1CI/AAAAAAAAEHA/EpBK1q4TNnY/s1600/tumblr_nd31s6thcV1rj76exo1_1280.jpg"
-            pieImgUrl = "assets/pies.png"
-            numberOfApples = "Some"
-            numberOfPieCrusts = "Some"
-            cupsOfSugar = "Some"
-            tspOfCinnamon = "Some"
-            eggCount = "Some"
+        if (selectValue == '2') {
+            pieCrustsCount = pieCrustsCount * 2
+            appleCount = appleCount * 2;
+            sugarAmt = sugarAmt * 2;
+            cinnamonAmt = cinnamonAmt * 2;
+            eggCount = eggCount * 2;
+        } else if (selectValue == '3') {
+            pieCrustsCount = pieCrustsCount * 3
+            appleCount = appleCount * 3
+            sugarAmt = sugarAmt * 3;
+            cinnamonAmt = cinnamonAmt * 3;
+            eggCount = eggCount * 3;
         }
-        
-        document.getElementById("pieImg").src = pieImgUrl;
-        document.getElementById("appleCount").innerHTML = numberOfApples;
-        document.getElementById("crustCount").innerHTML = numberOfPieCrusts;
-        document.getElementById("sugarCount").innerHTML = cupsOfSugar;
-        document.getElementById("tspCount").innerHTML = tspOfCinnamon;
-        document.getElementById("eggCount").innerHTML = eggCount; 
 
-        if (eggCount > 1 || eggCount == "Some") {
-            document.getElementById("eggText").innerHTML = " eggs"
+        if (eggCount > 1) {
+            eggTextValue = "eggs";
         }
+
+        // Change text to calculated value
+        document.getElementById("apples").innerText = appleCount;
+        document.getElementById("pieCrusts").innerText = pieCrustsCount;
+        document.getElementById("sugar").innerText = sugarAmt;
+        document.getElementById("cinnamon").innerText = cinnamonAmt;
+        document.getElementById("eggs").innerText = eggCount;
+        document.getElementById("eggText").innerText = eggTextValue;
     }
 </script>
 
